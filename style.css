@@ -1,5 +1,6 @@
 body{
 	background-color: #004c66;
+	overflow-x: hidden;
 }
 .circle{
 	margin: 70px auto;
@@ -45,6 +46,12 @@ body{
 	}
 }
 
+.container-dot-scale {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin: 70px auto;
+}
 .box{
 	width: 15px;
 	height: 15px;
@@ -61,3 +68,70 @@ body{
 		opacity: 0;
 	}
 }
+
+.top-loading-wrapper {
+	position: absolute;
+	top:0;
+	left: 0;
+	z-index: 999;
+	background-color: rgba(255,255,0,0.4);
+	height: 4px;
+	width: 100%;
+}
+
+.top-loading {
+	position: absolute;
+	top:0;
+	left: 0;
+	z-index: 999;
+	background-color: rgba(255,255,0,1);
+	height: 4px;
+	width: 20%;
+	animation: top-loading 1s linear infinite;
+}
+
+@keyframes top-loading {
+	0% {
+		width: 0%;
+		left: 0%;
+	}
+	100% {
+		width: 80%;
+		left: 100%;
+	}
+}
+
+.dot-scale {
+	width: 4px;
+	height: 4px;
+	background-color: #FFFFFF;
+	border-radius: 50%;
+	display: inline-block;
+	margin-right: 10px;
+	margin-left: 10px;
+}
+
+.dot-scale-1 {
+	animation: scaling 1s 0.2s linear infinite;
+}
+.dot-scale-2 {
+	animation: scaling 1s 0.4s linear infinite;
+}
+.dot-scale-3 {
+	animation: scaling 1s 0.6s linear infinite;
+}
+.dot-scale-4 {
+	animation: scaling 1s 0.8s linear infinite;
+}
+.dot-scale-5 {
+	animation: scaling 1s 1s linear infinite;
+}
+
+@-webkit-keyframes scaling {
+  0%     { transform: scale(1); } /* 0ms initial values */
+  20%  { transform: scale(3); }     /* 150ms half of animation */
+  40% { transform: scale(3); }     /* 2150ms still at half of animation */
+  60% { transform: scale(1); } /* 2300ms back to initial */
+  100%   { transform: scale(1); } /* 6300ms still at initial */
+}
+
